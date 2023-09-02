@@ -32,7 +32,7 @@ public class VentanaAlta extends javax.swing.JFrame {
         txtMotor = new javax.swing.JTextField();
         txtColor = new javax.swing.JTextField();
         txtPatente = new javax.swing.JTextField();
-        txtPuertas = new javax.swing.JTextField();
+        cmbPuertas = new javax.swing.JComboBox<>();
         labelTitulo = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
         btnLimpiar1 = new javax.swing.JButton();
@@ -58,6 +58,8 @@ public class VentanaAlta extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         jLabel6.setText("Nº Puertas:");
 
+        cmbPuertas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "3", "5" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -68,7 +70,7 @@ public class VentanaAlta extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(18, 18, 18)
-                        .addComponent(txtPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -111,8 +113,8 @@ public class VentanaAlta extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                    .addComponent(cmbPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         labelTitulo.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
@@ -186,7 +188,7 @@ public class VentanaAlta extends javax.swing.JFrame {
         txtMotor.setText("");
         txtColor.setText("");
         txtPatente.setText("");
-        txtPuertas.setText("");
+        cmbPuertas.setSelectedIndex(0);
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
  
@@ -194,6 +196,7 @@ public class VentanaAlta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnLimpiar1;
+    private javax.swing.JComboBox<String> cmbPuertas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -208,6 +211,5 @@ public class VentanaAlta extends javax.swing.JFrame {
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtMotor;
     private javax.swing.JTextField txtPatente;
-    private javax.swing.JTextField txtPuertas;
     // End of variables declaration//GEN-END:variables
 }
