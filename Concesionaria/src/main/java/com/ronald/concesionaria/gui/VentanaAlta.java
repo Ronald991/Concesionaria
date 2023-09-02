@@ -2,6 +2,7 @@
 package com.ronald.concesionaria.gui;
 
 import com.ronald.concesionaria.logica.LogicaController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -218,6 +219,9 @@ public class VentanaAlta extends javax.swing.JFrame {
         //Enviamos la información a la lógica de la aplicación para que se encargue
         //de crear el objeto
         logicaController.altaAutomovil(modelo, marca, motor, color, patente, puertas);
+        
+        JOptionPane.showMessageDialog(null, "Automovil añadido correctamente");
+        this.dispose();
     }//GEN-LAST:event_btnLimpiar1ActionPerformed
 
  
