@@ -1,12 +1,20 @@
 
 package com.ronald.concesionaria.logica;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author Ronald
  */
-public class Automovil {
-    
+@Entity
+public class Automovil implements Serializable {
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
     private String modelo;
     private String marca;
@@ -16,8 +24,9 @@ public class Automovil {
     private int cantidadPuertas;
     
     public Automovil(){}
-    public Automovil(String modelo, String marca, String motor, String color,
+    public Automovil(long id, String modelo, String marca, String motor, String color,
             String patente, int cantidadPuertas){
+        this.id = id;
         this.modelo = modelo;
         this.marca = marca;
         this.motor = motor;
@@ -30,7 +39,7 @@ public class Automovil {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(long id){
         this.id = id;
     }
 

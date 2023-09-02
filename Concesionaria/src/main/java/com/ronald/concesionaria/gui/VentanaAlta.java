@@ -1,16 +1,20 @@
 
 package com.ronald.concesionaria.gui;
 
+import com.ronald.concesionaria.logica.LogicaController;
+
 /**
  *
  * @author r
  */
 public class VentanaAlta extends javax.swing.JFrame {
-
-    /**
-     * Creates new form VentanaPrincipal
-     */
+    
+    //Creamos una instancia del controlador de la lógica para pasar datos de la GUI
+    //a la lógica
+    LogicaController logicaController = null;
+    
     public VentanaAlta() {
+        logicaController = new LogicaController();
         initComponents();
     }
 
@@ -130,6 +134,11 @@ public class VentanaAlta extends javax.swing.JFrame {
 
         btnLimpiar1.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         btnLimpiar1.setText("Aceptar");
+        btnLimpiar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiar1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -190,6 +199,26 @@ public class VentanaAlta extends javax.swing.JFrame {
         txtPatente.setText("");
         cmbPuertas.setSelectedIndex(0);
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnLimpiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiar1ActionPerformed
+        //Envia a la lógica los parámetros para crear dar de alta el nuevo automovil
+        String modelo = txtModelo.getText();
+        String marca = txtMarca.getText();
+        String motor = txtMotor.getText();
+        String color = txtColor.getText();
+        String patente = txtPatente.getText();
+        int puertas;
+        if("3".equals(cmbPuertas.getSelectedItem())){
+            puertas = 3;
+        }
+        else{
+            puertas = 5;
+        }
+        
+        //Enviamos la información a la lógica de la aplicación para que se encargue
+        //de crear el objeto
+        logicaController.altaAutomovil(modelo, marca, motor, color, patente, puertas);
+    }//GEN-LAST:event_btnLimpiar1ActionPerformed
 
  
 
