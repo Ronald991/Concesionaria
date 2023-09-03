@@ -127,6 +127,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Consulta, Modificaci&#xf3;n, Eliminaci&#xf3;n"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultaActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>

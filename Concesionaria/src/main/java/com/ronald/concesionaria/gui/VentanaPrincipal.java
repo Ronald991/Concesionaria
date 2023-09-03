@@ -40,6 +40,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnConsulta.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         btnConsulta.setText("Consulta, Modificación, Eliminación");
+        btnConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultaActionPerformed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         jButton1.setText("Salir");
@@ -136,6 +141,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.dispose();
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
+        // Creamos la ventana para poder hacer consultas, modificar y eliminar
+        VentanaConsulta ventanaConsulta = new VentanaConsulta();
+        ventanaConsulta.setTitle("Consulta de Automóviles");
+        ventanaConsulta.setLocationRelativeTo(null);
+        ventanaConsulta.setVisible(true);
+    }//GEN-LAST:event_btnConsultaActionPerformed
 
  
 
