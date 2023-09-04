@@ -1,7 +1,11 @@
 
 package com.ronald.concesionaria.gui;
 
+import com.ronald.concesionaria.logica.Automovil;
 import com.ronald.concesionaria.logica.LogicaController;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -140,6 +144,34 @@ public class VentanaConsulta extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void getAllAutomoviles(){
+        //crea un modelo de tabla con nuevos identificadores para cargar 
+        //la tabla y luego asignar a nuestra tablaAuto
+        DefaultTableModel tabla = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;//evita que los registros sean editables
+            };
+        };
+        
+        String[] cabeceras = {"Modelo", "Marca", "Motor", "Color", 
+                "Patente", "Nº Puertas"};
+        //establecemos las cabeceras como identificadores
+        tabla.setColumnIdentifiers(cabeceras);
+        
+        //obtenemos todos los datos de automoviles de la base de datos
+        List<Automovil> listaAutomoviles = logicaController.getAllAutomoviles();
+        
+        //recorremos la lista de automóviles, para extraer información y copiar
+        //al objeto
+        
+        for(Automovil auto : listaAutomoviles){
+            Object[] objeto = {auto.getModelo(), auto.getMarca(), auto.getMotor(),
+                auto.getColor(), auto.getPatente(), auto.getCantidadPuertas()};
+            //agregamos los objetos al modelo de tabla
+            tabla.addRow(objeto);
+        }
+        //agrega el modelo de tabla creado a nuestra tabla real
+        tablaAuto.setModel(tabla);
         
     }
     
