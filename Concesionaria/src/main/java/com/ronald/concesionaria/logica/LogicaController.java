@@ -2,6 +2,7 @@
 package com.ronald.concesionaria.logica;
 
 import com.ronald.concesionaria.persistencia.PersistenciaController;
+import java.util.List;
 
 /**
  *
@@ -27,6 +28,10 @@ public class LogicaController {
         auto.setCantidadPuertas(puertas);
         
         persistenciaController.altaAutomovil(auto);
+    }
+
+    public List<Automovil> getAllAutomoviles() {
+        return persistenciaController.getAllAutomoviles();
     }
     
 }
