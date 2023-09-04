@@ -2,6 +2,7 @@
 package com.ronald.concesionaria.persistencia;
 
 import com.ronald.concesionaria.logica.Automovil;
+import java.util.List;
 
 /**
  *
@@ -17,6 +18,10 @@ public class PersistenciaController {
 
     public void altaAutomovil(Automovil auto) {
         autoController.create(auto);
+    }
+
+    public List<Automovil> getAllAutomoviles() {
+        return autoController.findAutomovilEntities();
     }
     
 }
