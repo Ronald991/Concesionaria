@@ -33,5 +33,9 @@ public class LogicaController {
     public List<Automovil> getAllAutomoviles() {
         return persistenciaController.getAllAutomoviles();
     }
+
+    public void eliminarAutomovil(int id_cliente) {
+        persistenciaController.eliminarAutomovil(id_cliente);
+    }
     
 }
