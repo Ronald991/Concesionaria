@@ -4,8 +4,9 @@ package com.ronald.concesionaria.gui;
 import com.ronald.concesionaria.logica.Automovil;
 import com.ronald.concesionaria.logica.LogicaController;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumnModel;
+
 
 /**
  *
@@ -140,7 +141,19 @@ public class VentanaConsulta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        //eliminar el registro seleccionado
+        //Si existe por lo menos un registro en la tabla continuamos
+        if(tablaAuto.getRowCount() >= 1){
+            //Si hay por lo menos 1 elemento seleccionado
+            if(tablaAuto.getSelectedRow() != -1){
+                //Obtenemos el id, de la tabla, lo convertimos a un entero
+                int id_cliente = Integer.parseInt(String.valueOf(tablaAuto.getValueAt(tablaAuto.getSelectedRow(), tablaAuto.getSelectedColumn())));
+                logicaController.eliminarAutomovil(id_cliente);//llamamos a la lógica para que realice
+                //mostramos un mensaje de eliminado
+                JOptionPane.showMessageDialog(this,"Eliminado correctamente");
+                //actualizamos la tabla con la nueva información
+                getAllAutomoviles();
+            }
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void getAllAutomoviles(){
@@ -153,7 +166,7 @@ public class VentanaConsulta extends javax.swing.JFrame {
             };
         };
         
-        String[] cabeceras = {"Modelo", "Marca", "Motor", "Color", 
+        String[] cabeceras = {"Id", "Modelo", "Marca", "Motor", "Color", 
                 "Patente", "Nº Puertas"};
         //establecemos las cabeceras como identificadores
         tabla.setColumnIdentifiers(cabeceras);
@@ -165,7 +178,7 @@ public class VentanaConsulta extends javax.swing.JFrame {
         //al objeto
         
         for(Automovil auto : listaAutomoviles){
-            Object[] objeto = {auto.getModelo(), auto.getMarca(), auto.getMotor(),
+            Object[] objeto = {auto.getId(), auto.getModelo(), auto.getMarca(), auto.getMotor(),
                 auto.getColor(), auto.getPatente(), auto.getCantidadPuertas()};
             //agregamos los objetos al modelo de tabla
             tabla.addRow(objeto);
