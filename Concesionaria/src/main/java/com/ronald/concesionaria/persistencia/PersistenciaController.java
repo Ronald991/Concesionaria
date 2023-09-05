@@ -2,7 +2,10 @@
 package com.ronald.concesionaria.persistencia;
 
 import com.ronald.concesionaria.logica.Automovil;
+import com.ronald.concesionaria.persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,6 +25,14 @@ public class PersistenciaController {
 
     public List<Automovil> getAllAutomoviles() {
         return autoController.findAutomovilEntities();
+    }
+
+    public void eliminarAutomovil(int id_cliente) {
+        try {
+            autoController.destroy(id_cliente);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(PersistenciaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
