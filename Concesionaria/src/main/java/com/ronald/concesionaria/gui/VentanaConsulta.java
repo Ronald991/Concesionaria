@@ -174,14 +174,15 @@ public class VentanaConsulta extends javax.swing.JFrame {
         //obtenemos todos los datos de automoviles de la base de datos
         List<Automovil> listaAutomoviles = logicaController.getAllAutomoviles();
         
-        //recorremos la lista de automóviles, para extraer información y copiar
-        //al objeto
-        
-        for(Automovil auto : listaAutomoviles){
-            Object[] objeto = {auto.getId(), auto.getModelo(), auto.getMarca(), auto.getMotor(),
-                auto.getColor(), auto.getPatente(), auto.getCantidadPuertas()};
-            //agregamos los objetos al modelo de tabla
-            tabla.addRow(objeto);
+        //nos aseguramos de que la lista No este vacía
+        if(listaAutomoviles != null){
+             //recorremos la lista de automóviles, para extraer información y copiar al objeto
+            for(Automovil auto : listaAutomoviles){
+                Object[] objeto = {auto.getId(), auto.getModelo(), auto.getMarca(), auto.getMotor(),
+                    auto.getColor(), auto.getPatente(), auto.getCantidadPuertas()};
+                //agregamos los objetos al modelo de tabla
+                tabla.addRow(objeto);
+            }
         }
         //agrega el modelo de tabla creado a nuestra tabla real
         tablaAuto.setModel(tabla);
