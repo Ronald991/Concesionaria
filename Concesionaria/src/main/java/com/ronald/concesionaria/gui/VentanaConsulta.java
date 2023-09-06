@@ -63,6 +63,11 @@ public class VentanaConsulta extends javax.swing.JFrame {
 
         btnModificar.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
@@ -155,6 +160,34 @@ public class VentanaConsulta extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        //Si existe por lo menos un registro en la tabla
+        if(tablaAuto.getRowCount() >= 1){
+            //Si hay por lo menos 1 elemento seleccionado
+            if(tablaAuto.getSelectedRow() != -1){
+                //Obtenemos el id, de la tabla, lo convertimos a un entero
+                int id_cliente = Integer.parseInt(String.valueOf(tablaAuto.getValueAt(tablaAuto.getSelectedRow(), tablaAuto.getSelectedColumn())));
+                
+                //Creamos la ventana para introducir los datos
+                VentanaModificacion ventanaModifica = new VentanaModificacion(id_cliente);
+                ventanaModifica.setTitle("Modificación de Automovil");
+                ventanaModifica.setLocationRelativeTo(null);
+                ventanaModifica.setVisible(true);
+                
+                //mostramos un mensaje de eliminado
+                JOptionPane.showMessageDialog(this,"Eliminado correctamente");
+                //actualizamos la tabla con la nueva información
+                getAllAutomoviles();
+            }
+        }
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     private void getAllAutomoviles(){
         //crea un modelo de tabla con nuevos identificadores para cargar 
