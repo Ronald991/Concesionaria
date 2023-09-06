@@ -37,5 +37,22 @@ public class LogicaController {
     public void eliminarAutomovil(int id_cliente) {
         persistenciaController.eliminarAutomovil(id_cliente);
     }
+
+    public Automovil getAutomovil(int id_auto) {
+        return persistenciaController.getAutomovil(id_auto);
+    }
+
+    public void editarAutomovil(String modelo, String marca, String motor, String color,
+                String patente, int puertas) {
+        auto.setModelo(modelo);
+        auto.setMarca(marca);
+        auto.setMotor(motor);
+        auto.setColor(color);
+        auto.setPatente(patente);
+        auto.setCantidadPuertas(puertas);
+        
+        persistenciaController.editarAutomovil(auto);
+        
+    }
     
 }

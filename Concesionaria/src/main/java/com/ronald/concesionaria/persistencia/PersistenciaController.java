@@ -34,5 +34,17 @@ public class PersistenciaController {
             Logger.getLogger(PersistenciaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public Automovil getAutomovil(int id_auto) {
+        return autoController.findAutomovil(id_auto);
+    }
+
+    public void editarAutomovil(Automovil auto) {
+        try {
+            autoController.edit(auto);
+        } catch (Exception ex) {
+            Logger.getLogger(PersistenciaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }
