@@ -40,7 +40,7 @@ public class VentanaAlta extends javax.swing.JFrame {
         cmbPuertas = new javax.swing.JComboBox<>();
         labelTitulo = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
-        btnLimpiar1 = new javax.swing.JButton();
+        btnCrear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -133,11 +133,11 @@ public class VentanaAlta extends javax.swing.JFrame {
             }
         });
 
-        btnLimpiar1.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
-        btnLimpiar1.setText("Aceptar");
-        btnLimpiar1.addActionListener(new java.awt.event.ActionListener() {
+        btnCrear.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        btnCrear.setText("Aceptar");
+        btnCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiar1ActionPerformed(evt);
+                btnCrearActionPerformed(evt);
             }
         });
 
@@ -158,7 +158,7 @@ public class VentanaAlta extends javax.swing.JFrame {
                 .addGap(147, 147, 147)
                 .addComponent(btnLimpiar)
                 .addGap(56, 56, 56)
-                .addComponent(btnLimpiar1)
+                .addComponent(btnCrear)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -171,7 +171,7 @@ public class VentanaAlta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiar)
-                    .addComponent(btnLimpiar1))
+                    .addComponent(btnCrear))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -201,7 +201,7 @@ public class VentanaAlta extends javax.swing.JFrame {
         cmbPuertas.setSelectedIndex(0);
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
-    private void btnLimpiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiar1ActionPerformed
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         //Envia a la lógica los parámetros para crear dar de alta el nuevo automovil
         String modelo = txtModelo.getText();
         String marca = txtMarca.getText();
@@ -222,13 +222,13 @@ public class VentanaAlta extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null, "Automovil añadido correctamente");
         this.dispose();
-    }//GEN-LAST:event_btnLimpiar1ActionPerformed
+    }//GEN-LAST:event_btnCrearActionPerformed
 
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCrear;
     private javax.swing.JButton btnLimpiar;
-    private javax.swing.JButton btnLimpiar1;
     private javax.swing.JComboBox<String> cmbPuertas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
