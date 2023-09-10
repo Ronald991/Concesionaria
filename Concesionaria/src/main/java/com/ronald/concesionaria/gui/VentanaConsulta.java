@@ -174,18 +174,17 @@ public class VentanaConsulta extends javax.swing.JFrame {
                 ventanaModifica.setTitle("Modificación de Automovil");
                 ventanaModifica.setLocationRelativeTo(null);
                 ventanaModifica.setVisible(true);
-                
-                //mostramos un mensaje de eliminado
-                JOptionPane.showMessageDialog(this,"Eliminado correctamente");
+               
                 //actualizamos la tabla con la nueva información
-                getAllAutomoviles();
+                this.dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "No hay ningun registro seleccionado");
             }
         }
-        
-        
-        
-        
-        
+        else{
+            JOptionPane.showMessageDialog(this, "No hay registros para modificar");
+        }
         
     }//GEN-LAST:event_btnModificarActionPerformed
 
