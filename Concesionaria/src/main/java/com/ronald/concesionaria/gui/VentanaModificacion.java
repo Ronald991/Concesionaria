@@ -13,14 +13,16 @@ public class VentanaModificacion extends javax.swing.JFrame {
     
     //Creamos una instancia del controlador de la lógica para pasar datos de la GUI
     //a la lógica
-    LogicaController logicaController = null;
-    Automovil auto = null;
+    private LogicaController logicaController = null;
+    private Automovil auto = null;
+    private int id_auto;
     
     public VentanaModificacion(int id_auto) {
         logicaController = new LogicaController();
         auto = new Automovil();
+        this.id_auto = id_auto;
         initComponents();
-        cargarDatos(id_auto);
+        cargarDatos();
     }
 
 
@@ -223,13 +225,19 @@ public class VentanaModificacion extends javax.swing.JFrame {
        
         //Enviamos la información a la lógica de la aplicación para que se encargue
         //de modificar el objeto existente
-        logicaController.editarAutomovil(modelo, marca, motor, color, patente, puertas);
+        logicaController.editarAutomovil(id_auto, modelo, marca, motor, color, patente, puertas);
         
-        JOptionPane.showMessageDialog(null, "Automovil añadido correctamente");
+        JOptionPane.showMessageDialog(null, "Actualizado correctamente");
+        
+        VentanaConsulta vConsulta = new VentanaConsulta();
+        vConsulta.setTitle("Consulta de Automoviles");
+        vConsulta.setLocationRelativeTo(null);
+        vConsulta.setVisible(true);
+        
         this.dispose();
     }//GEN-LAST:event_btnModificarActionPerformed
 
-    public void cargarDatos(int id_auto){
+    private void cargarDatos(){
         //obtenemos los datos originales del automóvil para rellenar el formulario
         auto = logicaController.getAutomovil(id_auto);
         txtModelo.setText(auto.getModelo());
