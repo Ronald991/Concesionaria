@@ -42,8 +42,10 @@ public class LogicaController {
         return persistenciaController.getAutomovil(id_auto);
     }
 
-    public void editarAutomovil(String modelo, String marca, String motor, String color,
+    public void editarAutomovil(int id_auto, String modelo, String marca, String motor, String color,
                 String patente, int puertas) {
+        
+        auto.setId(id_auto);
         auto.setModelo(modelo);
         auto.setMarca(marca);
         auto.setMotor(motor);
